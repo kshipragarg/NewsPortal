@@ -5,12 +5,12 @@
 export const environment = {
   production: false,
 	firebase: {
-		apiKey: "AIzaSyCqqRhrFpOq_acw9BzI9UCjMKRfdJRfg8Y",
-    authDomain: "newsportal-f5610.firebaseapp.com",
-    databaseURL: "https://newsportal-f5610.firebaseio.com",
-    projectId: "newsportal-f5610",
-    storageBucket: "newsportal-f5610.appspot.com",
-    messagingSenderId: "786124537384",
+		apiKey: "",
+    authDomain: "",
+    databaseURL: ""
+    projectId: "",
+    storageBucket: "",
+    messagingSenderId: "4",
     
 	}
 };
