@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { environment } from './../environments/environment';
 import { AppComponent } from './app.component';
 import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
@@ -10,7 +10,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireModule} from 'angularfire2';
 import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { Routes } from '@angular/router';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+const routes: Routes = [
+  { path: 'search', component: NavigationBarComponent }
+];
 
 @NgModule({
   declarations: [
@@ -24,8 +30,10 @@ import { FormsModule } from '@angular/forms';
 		HttpClientModule,
 		AngularFireModule.initializeApp(environment.firebase),
 		AngularFireDatabaseModule,
-		FormsModule
-  ],
+		FormsModule,
+		BrowserAnimationsModule,
+		NgbModule
+	],
   providers: [],
   bootstrap: [AppComponent]
 })

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navigation-bar',
@@ -7,17 +8,22 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./navigation-bar.component.scss']
 })
 export class NavigationBarComponent implements OnInit {
-	userName: String ="";
+isNavbarCollapsed=true;
+	query: String ="";
 	response: any;
-  constructor(private http: HttpClient) { }
+constructor(private http: HttpClient){}//, private route:ActivatedRoute, private router:Router) { }
 
   ngOnInit(): void {
   }
 	search(){
-			let resp = this.http.get('https://api.github.com/users/' + this.userName);
+			let resp = this.http.get('https://api.github.com/users/' + this.query);
 			resp.subscribe((response) => {
-				this.response=response
+				this.response=response;
 				console.log(this.response);
+				if(this.response){
+					//this.router.navigate(['/search']);
+				}
+			
 				})
 	}
 }
