@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { AngularFirestore } from '@angular/fire/firestore';
-import * as $ from 'jquery'
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-side-bar',
