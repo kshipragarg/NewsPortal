@@ -9,13 +9,15 @@ import { NewsComponent } from './news/news.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireModule} from 'angularfire2';
+import { AngularFirestore } from '@angular/fire/firestore';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { Routes } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SearchBarComponent } from './search-bar/search-bar.component';
 
 const routes: Routes = [
-  { path: 'search', component: NavigationBarComponent }
+  { path: 'search', component: SearchBarComponent }
 ];
 
 @NgModule({
@@ -23,8 +25,9 @@ const routes: Routes = [
     AppComponent,
     NavigationBarComponent,
     SideBarComponent,
-    NewsComponent
-  ],
+    NewsComponent,
+    SearchBarComponent
+	],
   imports: [
     BrowserModule,
 		HttpClientModule,
@@ -34,7 +37,7 @@ const routes: Routes = [
 		BrowserAnimationsModule,
 		NgbModule
 	],
-  providers: [],
+  providers: [AngularFirestore],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
 import { AngularFireDatabase } from '@angular/fire/database';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFirestore } from '@firebase/firestore';
 
 @Component({
   selector: 'app-news',
@@ -8,15 +10,16 @@ import { AngularFireDatabase } from '@angular/fire/database';
   styleUrls: ['./news.component.scss']
 })
 export class NewsComponent implements OnInit {
-	state1: any[];
-  constructor(private http: HttpClient, db: AngularFireDatabase ) {
-		db.list('/state1').valueChanges().subscribe((state1) => {
-			this.state1 = state1;
-			console.log(this.state1);
-		})
+value : any[];
+  constructor(private http: HttpClient, db: AngularFirestore ) {
+		db.collection('subject').valueChanges()
+		.subscribe((value) => console.log(value));
 	}
 	users: any;
   ngOnInit(){
+		
+		//this.
+		
 		let resp = this.http.get("https://api.github.com/users")
 		resp.subscribe((data) => this.users=data) ;
 		}
