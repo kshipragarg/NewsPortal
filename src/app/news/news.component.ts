@@ -14,12 +14,22 @@ export class NewsComponent implements OnInit {
 	mSources : Array<any>;
   constructor(private http: HttpClient, private db: AngularFirestore ) {
 		db.collection('subject').valueChanges()
-		.subscribe((op) =>  this.value=op);
+		.subscribe((op) => { 
+			// this.value=op
+		// console.log("TT", this);
+		this.ngOnInitTest(op);
+		});
 	}
+	ngOnInit(){}
 	
-  ngOnInit(){
-	  
-	  this.http.get(url).subscribe(data => this.mArticles = data['articles']);
+  ngOnInitTest(op){
+	console.log("TT", op);
+	console.log(op[0].url);
+	  this.http.get(op[0].url).subscribe(data =>{
+		   this.mArticles = data['articles'];
+		   console.log("Article is", this.mArticles);
+	  }
+		   );
 		/* this.http.get('https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=d27f55bb18f8475299781bf1df8cc23c')
 		.subscribe(data => this.mSources = data['sources']); */
 		}
