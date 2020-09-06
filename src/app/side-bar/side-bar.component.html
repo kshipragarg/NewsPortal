@@ -1,25 +1,17 @@
 
 <body>
-<div class="sidebar">
-  <a class="active" href="#home"><span class="fas fa-home"></span></a>
-  <!-- <a href="#news">Technology</a>
-  <a href="#contact">Corona</a>
-  <a href="#about">Election</a>
-  <a href="#about">Movies</a>
-  <a href="#about">Innovation</a> -->
-	<div *ngFor="let sub of value">
-			<a href="#{{ sub.name }}" id="{{ sub.name }}">{{ sub.name  | uppercase }}</a>
+	<div class="sidebar">
+	  <a class="active" href="#home"><span class="fas fa-home"></span></a>
+		<div *ngFor="let sub of value">
+				<a href="#{{ sub.name }}">{{ sub.name | uppercase }}</a>
+		</div>
 	</div>
-</div>
- <!--  <app-search-bar>
-</app-search-bar> -->
-<div class="content">
-<span class="glyphicon glyphicon-home"></span> 
-
-<br>
-<app-news>
-</app-news>
-
-</div>
-
+	
+	<div class="content">
+		<!-- <app-search-bar>
+		</app-search-bar> -->
+		<br>
+		<app-news>
+		</app-news>
+	</div>
 </body>

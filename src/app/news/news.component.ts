@@ -8,20 +8,19 @@ import { AngularFirestore } from '@angular/fire/firestore';
   styleUrls: ['./news.component.scss']
 })
 export class NewsComponent implements OnInit {
-value : any[];
+	value : any[];
+	url : any[];
+	mArticles : Array<any>;
+	mSources : Array<any>;
   constructor(private http: HttpClient, private db: AngularFirestore ) {
 		db.collection('subject').valueChanges()
 		.subscribe((op) =>  this.value=op);
 	}
-	/* ref:AngularFirestoreCollection<Item>;
-	items: Observable<Item[]>;
-	constructor(private http: HttpClient, private db: AngularFirestore ) {} */
-	users: any;
+	
   ngOnInit(){
-		
-		//this.
-		
-		let resp = this.http.get("https://api.github.com/users")
-		resp.subscribe((data) => this.users=data) ;
+	  
+	  this.http.get(url).subscribe(data => this.mArticles = data['articles']);
+		/* this.http.get('https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=d27f55bb18f8475299781bf1df8cc23c')
+		.subscribe(data => this.mSources = data['sources']); */
 		}
   }
