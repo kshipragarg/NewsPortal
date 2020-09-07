@@ -10,10 +10,9 @@ import * as $ from 'jquery';
   styleUrls: ['./navigation-bar.component.scss']
 })
 export class NavigationBarComponent implements OnInit {
-isNavbarCollapsed=true;
-	
+	isNavbarCollapsed=true;
     value : any[];
-  constructor(private http: HttpClient, private db: AngularFirestore ) {
+	constructor(private http: HttpClient, private db: AngularFirestore ) {
 		db.collection('subject').valueChanges()
 		.subscribe((op) =>  this.value=op);
 		

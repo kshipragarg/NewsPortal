@@ -1,16 +1,16 @@
 
 <body>
 	<div class="sidebar">
-	  <a class="active" href="#home"><span class="fas fa-home"></span></a>
+	  <a class="active" href="app-navigation-bar"><span class="fas fa-home"></span></a>
 		<div *ngFor="let sub of value">
-				<a href="#{{ sub.name }}">{{ sub.name | uppercase }}</a>
+			<a href="#{{ sub.name }}scroll">{{ sub.name | uppercase }}</a>
 		</div>
 	</div>
 	
 	<div class="content">
-		<!-- <app-search-bar>
-		</app-search-bar> -->
-		<br>
+		<app-search-bar>
+		</app-search-bar>
+		
 		<app-news>
 		</app-news>
 	</div>
